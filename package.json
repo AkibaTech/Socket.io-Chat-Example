@@ -1,0 +1,16 @@
+{
+  "name": "socket-io-chat-example",
+  "version": "0.0.1",
+  "description": "Tout petit chat avec socket.io pour montrer aux copaings :)",
+  "main": "index.js",
+  "dependencies": {
+    "socket.io": "^1.4",
+    "express": "^4.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MarceauKa",
+  "license": "none"
+}
