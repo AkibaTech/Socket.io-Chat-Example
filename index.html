@@ -119,27 +119,34 @@
          * Events distants
          */
 
+        // Demande du nom d'utilisateur
         socket.on('chat.username', function() {
             username = prompt('Quel est votre nom ?');
             if (username) {
                 $('#post').show();
                 socket.emit('chat.new', username);
+            } else {
+                location.reload();
             }
         })
 
+        // Le nom d'utilisateur est incorrect
         socket.on('chat.wrong_username', function() {
             alert("Ce nom est déjà utilisé !");
         });
 
+        // Mise à jour des participants
         socket.on('chat.new', function(users) {
             updateParticipants(users);
         });
 
+        // Chat complet
         socket.on('chat.full', function() {
             alert("Le chat est complet !");
             window.location = 'about:blank';
         });
 
+        // Nouveau message
         socket.on('chat.message', function(data) {
             var div = $('<div>');
             var span = $('<span>');
@@ -154,7 +161,7 @@
 
             if (data.date) {
                 var date = new Date(data.date);
-                em.text(date.getHours()+'h'+date.getMinutes());
+                em.text(date.getHours() + 'h' + date.getMinutes());
                 em.prependTo(div);
             }
         });
